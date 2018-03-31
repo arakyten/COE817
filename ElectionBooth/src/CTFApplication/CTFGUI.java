@@ -5,6 +5,9 @@
  */
 package CTFApplication;
 
+
+import javax.swing.JPanel;
+
 /**
  *
  * @author Deon
@@ -16,6 +19,19 @@ public class CTFGUI extends javax.swing.JFrame {
      */
     public CTFGUI() {
         initComponents();
+        initCTFPanel();
+    }
+
+    public void initCTFPanel() {
+
+        this.CTF_PanelName.setText("Voter Registration");
+        this.CTF_PanelName.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
+        this.CTF_PanelName.setVerticalAlignment((int) JPanel.CENTER_ALIGNMENT);
+        
+        this.CTF_Input1.setText("");
+        this.CTF_Input2.setText("");
+        this.CTF_Input3.setText("");
+        this.CTF_VerificationMsg.setText("");
     }
 
     /**
@@ -27,17 +43,83 @@ public class CTFGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Root = new javax.swing.JPanel();
+        CTFPanel = new javax.swing.JPanel();
+        CTF_PanelName = new javax.swing.JLabel();
+        CTF_Input1 = new javax.swing.JLabel();
+        CTF_Input2 = new javax.swing.JLabel();
+        CTF_Input3 = new javax.swing.JLabel();
+        CTF_VerificationMsg = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        CTF_PanelName.setText("Voting Registration");
+
+        CTF_Input1.setText("Instructions...");
+
+        CTF_Input2.setText("Instructions...");
+
+        CTF_Input3.setText("Instructions...");
+
+        CTF_VerificationMsg.setText("...");
+
+        javax.swing.GroupLayout CTFPanelLayout = new javax.swing.GroupLayout(CTFPanel);
+        CTFPanel.setLayout(CTFPanelLayout);
+        CTFPanelLayout.setHorizontalGroup(
+            CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CTFPanelLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CTF_Input2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                        .addComponent(CTF_PanelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(CTF_Input1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52))
+        );
+        CTFPanelLayout.setVerticalGroup(
+            CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CTFPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(CTF_PanelName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(CTF_Input1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CTF_Input2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout RootLayout = new javax.swing.GroupLayout(Root);
+        Root.setLayout(RootLayout);
+        RootLayout.setHorizontalGroup(
+            RootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RootLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CTFPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        RootLayout.setVerticalGroup(
+            RootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RootLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CTFPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -46,38 +128,15 @@ public class CTFGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CTFGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CTFGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CTFGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CTFGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CTFGUI().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CTFPanel;
+    private javax.swing.JLabel CTF_Input1;
+    private javax.swing.JLabel CTF_Input2;
+    private javax.swing.JLabel CTF_Input3;
+    private javax.swing.JLabel CTF_PanelName;
+    private javax.swing.JLabel CTF_VerificationMsg;
+    private javax.swing.JPanel Root;
     // End of variables declaration//GEN-END:variables
 }
