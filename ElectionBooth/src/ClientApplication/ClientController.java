@@ -1,5 +1,5 @@
-package COE817.ClientApplication;
-
+package ClientApplication;
+import CTFApplication.CTFGUI;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +14,7 @@ public final class ClientController {
     //Test
     public static void main(String[] args) {
         ClientController x = new ClientController();
-        
+        CTFGUI.main(args);
     }
 
     ClientGUI gui;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package COE817.CLAApplication;
+package CLAApplication;
 
 /**
  *
@@ -11,8 +11,5 @@ package COE817.CLAApplication;
  */
 public class CentralLegitimizationAgency 
 {
-    public static void main(String[] args) {
-        
-    }
     
 }
