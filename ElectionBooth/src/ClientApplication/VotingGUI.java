@@ -89,7 +89,7 @@ public final class VotingGUI extends javax.swing.JPanel {
 
         V_VerificationCode.setText("Verification Code...");
 
-        V_Vote.setText("Confirm Registration");
+        V_Vote.setText("Confirm Vote");
 
         V_Verification.setText("...");
 
@@ -104,11 +104,10 @@ public final class VotingGUI extends javax.swing.JPanel {
                 .addGroup(VotingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(V_Options, 0, 274, Short.MAX_VALUE)
                     .addComponent(V_Vote)
-                    .addGroup(VotingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(V_Verification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(V_VerificationCode)
-                        .addComponent(V_PanelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(V_Instructions, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
+                    .addComponent(V_Verification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(V_VerificationCode)
+                    .addComponent(V_PanelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(V_Instructions, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
                 .addGap(52, 52, 52))
         );
         VotingPanelLayout.setVerticalGroup(

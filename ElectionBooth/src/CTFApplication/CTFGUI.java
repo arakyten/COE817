@@ -24,16 +24,35 @@ public class CTFGUI extends javax.swing.JFrame {
 
     public void initCTFPanel() {
 
-        this.CTF_PanelName.setText("Voter Registration");
+        this.CTF_PanelName.setText("Central Tabulating Facility");
         this.CTF_PanelName.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
         this.CTF_PanelName.setVerticalAlignment((int) JPanel.CENTER_ALIGNMENT);
         
         this.CTF_Input1.setText("");
-        this.CTF_Input2.setText("");
         this.CTF_Input3.setText("");
-        this.CTF_VerificationMsg.setText("");
+        this.CTF_Input2.setText("");
+        this.CTF_VerificationMsg.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
+        this.CTF_VerificationMsg1.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
+        this.CTF_VerificationMsg1.setText("");
     }
 
+    public void setMsg1(String msg)
+    {
+        CTF_Input1.setText(msg);
+    }
+    public void setMsg2(String msg)
+    {
+        CTF_Input2.setText(msg);
+    }
+    public void setMsg3(String msg)
+    {
+        CTF_Input3.setText(msg);
+    }
+    public void setVMsg(String msg)
+    {
+        CTF_VerificationMsg1.setText(msg);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +69,7 @@ public class CTFGUI extends javax.swing.JFrame {
         CTF_Input2 = new javax.swing.JLabel();
         CTF_Input3 = new javax.swing.JLabel();
         CTF_VerificationMsg = new javax.swing.JLabel();
+        CTF_VerificationMsg1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,37 +81,45 @@ public class CTFGUI extends javax.swing.JFrame {
 
         CTF_Input3.setText("Instructions...");
 
-        CTF_VerificationMsg.setText("...");
+        CTF_VerificationMsg.setText("Verfication Code :");
+
+        CTF_VerificationMsg1.setText("...");
 
         javax.swing.GroupLayout CTFPanelLayout = new javax.swing.GroupLayout(CTFPanel);
         CTFPanel.setLayout(CTFPanelLayout);
         CTFPanelLayout.setHorizontalGroup(
             CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CTFPanelLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CTF_Input2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                        .addComponent(CTF_PanelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(CTF_Input1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
+                    .addComponent(CTF_VerificationMsg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(CTFPanelLayout.createSequentialGroup()
+                        .addGap(0, 54, Short.MAX_VALUE)
+                        .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CTF_Input2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CTF_Input1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CTF_PanelName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(34, 34, 34))
         );
         CTFPanelLayout.setVerticalGroup(
             CTFPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CTFPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(CTF_PanelName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(CTF_Input1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(CTF_Input2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CTF_Input3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(CTF_VerificationMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CTF_VerificationMsg1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout RootLayout = new javax.swing.GroupLayout(Root);
@@ -137,6 +165,7 @@ public class CTFGUI extends javax.swing.JFrame {
     private javax.swing.JLabel CTF_Input3;
     private javax.swing.JLabel CTF_PanelName;
     private javax.swing.JLabel CTF_VerificationMsg;
+    private javax.swing.JLabel CTF_VerificationMsg1;
     private javax.swing.JPanel Root;
     // End of variables declaration//GEN-END:variables
 }
