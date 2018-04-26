@@ -51,7 +51,7 @@ public class CTFGUI extends javax.swing.JFrame {
     public void setVMsg(String msg)
     {
         CTF_VerificationMsg1.setText(msg);
-    }
+    }   
     
     /**
      * This method is called from within the constructor to initialize the form.

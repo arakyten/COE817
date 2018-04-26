@@ -4,42 +4,43 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JButton;
 
 /**
  *
  * @author Deon
  */
 public final class VotingGUI extends javax.swing.JPanel {
-
+    
     public VotingGUI(ActionListener buttonRegisterEvent, String options[]) {
         initComponents();
-        initRPanel(buttonRegisterEvent,options);
-
+        initRPanel(buttonRegisterEvent, options);
+        
     }
-
-    public void initRPanel(ActionListener registerEvent,String options[]) {
-
+    
+    public void initRPanel(ActionListener registerEvent, String options[]) {
+        
         this.V_PanelName.setText("Voting Station");
         this.V_PanelName.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
         this.V_PanelName.setVerticalAlignment((int) JPanel.CENTER_ALIGNMENT);
-
+        
         this.V_Instructions.setText("<html>"
                 + "Please enter your verification code below in the    "
                 + "given text field. The verification code be required "
                 + "to authenticate your vote." + "</html>");
         this.V_Instructions.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
         this.V_Instructions.setVerticalAlignment((int) JPanel.CENTER_ALIGNMENT);
-
+        
         this.V_VerificationCode.addFocusListener(new FocusListener() {
             String phrase = "Verification Code...";
-
+            
             @Override
             public void focusGained(FocusEvent fe) {
                 if (V_VerificationCode.getText().equals(phrase)) {
                     V_VerificationCode.setText("");
                 }
             }
-
+            
             @Override
             public void focusLost(FocusEvent fe) {
                 if (V_VerificationCode.getText().length() <= 1) {
@@ -47,23 +48,39 @@ public final class VotingGUI extends javax.swing.JPanel {
                 }
             }
         });
-
+        
         V_Options.setModel(new javax.swing.DefaultComboBoxModel<>(options));
         
         this.V_Vote.addActionListener(registerEvent);
     }
-
+    
     public void resetGUI() {
         V_VerificationCode.setText("");
         V_VerificationCode.requestFocus();
     }
-
+    
     public String getVerification() {
         return this.V_VerificationCode.getText();
     }
-
+    
     public void setVerficationCode(String verficationID) {
         this.V_Verification.setText(verficationID);
+    }
+
+    public int getVote() {
+        return V_Options.getSelectedIndex();
+    }
+
+    public void setButtonText(String s) {
+        V_Vote.setText(s);
+    }
+
+    public JButton getButton() {
+        return V_Vote;
+    }
+    
+    public void setVCfield(String s) {
+        V_VerificationCode.setText(s);
     }
 
     /**

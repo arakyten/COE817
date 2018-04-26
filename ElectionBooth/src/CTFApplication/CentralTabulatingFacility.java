@@ -28,18 +28,24 @@ import javax.swing.JFrame;
 public class CentralTabulatingFacility {
 
     private static String c[] = {"a", "b", "c"};
-    private final String CANDIADATES[];
-    private final ArrayList<Integer> votes;
-    private CTFGUI gui;
+    private static String CANDIADATES[] = null;
+    private static ArrayList<Integer> votes = null;
+    private static CTFGUI gui = null;
 
     CentralTabulatingFacility(String candiadates[]) {
-        this.CANDIADATES = candiadates;
-        this.votes = new ArrayList<>();
-        //Intialize votes too 0
-        for (String c : candiadates) {
-            votes.add(0);
+        if (CANDIADATES == null) {
+            this.CANDIADATES = candiadates;
         }
-        this.initGUI();
+        if (votes == null) {
+            this.votes = new ArrayList<>();
+            //Intialize votes too 0
+            for (String c : candiadates) {
+                votes.add(0);
+            }
+        }
+        if (gui == null) {
+            this.initGUI();
+        }
     }
 
     public void vote(String verificationCode, String selection) throws Exception {
@@ -140,7 +146,7 @@ public class CentralTabulatingFacility {
         return index;
     }
 
-    private void printVotes() {
+    private void printVotes(String vc) {
         System.out.println("Vote count for " + CANDIADATES[0] + ": " + votes.get(0));
         System.out.println("Vote count for " + CANDIADATES[1] + ": " + votes.get(1));
         System.out.println("Vote count for " + CANDIADATES[2] + ": " + votes.get(2));
@@ -148,10 +154,11 @@ public class CentralTabulatingFacility {
         gui.setMsg1("Vote count for " + CANDIADATES[0] + ": " + votes.get(0));
         gui.setMsg2("Vote count for " + CANDIADATES[1] + ": " + votes.get(1));
         gui.setMsg3("Vote count for " + CANDIADATES[2] + ": " + votes.get(2));
+        gui.setVMsg(vc);
 
     }
 
-    public static void main(String[] args) {
+    public static void TESTmain(String[] args) {
         CentralTabulatingFacility x = new CentralTabulatingFacility(c);
         try {
             x.vote("v1", "a");
@@ -160,37 +167,78 @@ public class CentralTabulatingFacility {
             x.vote("v4", "c");
             x.vote("v5", "b");
 
-            x.printVotes();
-
+            //x.printVotes();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    public static void maain(String[] args) {
+    public static void main(String[] args) {
         int portNumber = 500;
+        String options[] = {"Donald_Trump", "Barack_Obama", "George_W._Bush"};
+        String vc = "", can = "";
+        CentralTabulatingFacility x = null;
         try {
-            ServerSocket serverSocket = new ServerSocket(portNumber);
-            Socket clientSocket = serverSocket.accept();
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            while (true) {
+                ServerSocket serverSocket = null;
+                Socket clientSocket = null;
+                PrintWriter out = null;
+                BufferedReader in = null;
+                try {
+                    serverSocket = new ServerSocket(portNumber);
+                    System.out.println("Waiting for connection ... ");
+                    clientSocket = serverSocket.accept();
+                    System.out.println("Connection established ...");
+                    out = new PrintWriter(clientSocket.getOutputStream(), true);
+                    in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            //Read from Socket get number of candiadates
-            //---
-            //CentralTabulatingFacility x = new CentralTabulatingFacility(c);
-            //
-            
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);                
-                break;
+                    //Read from Socket get number of candiadates
+                    //---
+                    x = new CentralTabulatingFacility(options);
+                    //
+
+                    String inputLine;
+                    System.out.println("Waiting for msg");
+                    //inputLine = in.readLine();
+                    //while ((inputLine = in.readLine()) != null) {                        
+                    while (true) {
+                        inputLine = in.readLine();
+                        if (inputLine != null) {
+                            System.out.println("Msg recieved :" + inputLine);
+                            String tmp[] = inputLine.split(" ");
+                            vc = tmp[0];
+                            can = tmp[1];
+                            x.vote(vc, can);
+                            x.printVotes(vc);
+                            out.println(vc);
+
+                            System.out.println("voted :" + vc + " " + can);
+                            break;
+                        } else {
+                            System.out.println("null");
+                        }
+                    }
+
+                    //while (!clientSocket.isClosed());
+                    System.out.println("Jobs Done.\n");
+                    out.close();
+                    in.close();
+                    clientSocket.close();
+                    serverSocket.close();
+                    System.out.println("Jobs Done.\n");
+
+                } catch (Exception e) {
+                    x.vote(vc, can);
+                    x.printVotes(vc);
+
+                    out.close();
+                    in.close();
+                    clientSocket.close();
+                    serverSocket.close();
+                    System.out.println("Connection lost ... closing connection");
+                }
             }
-
-            out.close();
-            in.close();
-            clientSocket.close();
-            serverSocket.close();
 
         } catch (Exception e) {
             e.printStackTrace();

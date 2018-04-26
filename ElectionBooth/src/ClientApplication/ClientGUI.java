@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -119,6 +120,18 @@ public final class ClientGUI extends javax.swing.JPanel {
 
     public void setVerficationCode(String verficationID) {
         this.R_Verification.setText(verficationID);
+    }
+
+    public String getVerficationCode() {
+        return this.R_Verification.getText();
+    }
+
+    public void setButtonText(String s) {
+        R_ConfirmRegs.setText(s);
+    }
+
+    public JButton getButton() {
+        return R_ConfirmRegs;
     }
 
     /**
